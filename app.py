@@ -76,6 +76,7 @@ class GridVisualizer:
         finder = AStarFinder(diagonal_movement=DiagonalMovement.always)
         path, runs = finder.find_path(start, end, grid)
         print('operations:', runs, 'path length:', len(path))
+        print(grid.grid_str(path=path, start=start, end=end))
         self.path = path
         self.draw_path()
 
@@ -94,7 +95,7 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:                        
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
